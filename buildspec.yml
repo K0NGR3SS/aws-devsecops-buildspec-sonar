@@ -5,7 +5,7 @@ env:
 phases:
   build:
     commands:
-      - echo "Starting Maven build..."
+      - echo "Running Maven verify..."
       - mvn verify
-      - echo "Starting SonarCloud analysis..."
-      - mvn sonar:sonar -Dsonar.projectKey=javaprojectnaz -Dsonar.organization=DevSecOpsNaz -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$TOKEN
+      - echo "Running SonarCloud analysis with full error details..."
+      - mvn sonar:sonar -e -X -Dsonar.projectKey=javaprojectnaz -Dsonar.organization=DevSecOpsNaz -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$TOKEN
