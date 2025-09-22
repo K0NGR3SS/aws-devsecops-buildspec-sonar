@@ -1,8 +1,11 @@
 version: 0.2
 env:
-    secrets-manager:
-      TOKEN: veryimportantProd1
+  secrets-manager:
+    TOKEN: veryimportantProd1
 phases:
   build:
     commands:
-      - mvn verify sonar:sonar -Dsonar.projectKey=javaprojectnaz -Dsonar.organization=DevSecOpsNaz -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${TOKEN}
+      - echo "Starting Maven build..."
+      - mvn verify
+      - echo "Starting SonarCloud analysis..."
+      - mvn sonar:sonar -Dsonar.projectKey=javaprojectnaz -Dsonar.organization=DevSecOpsNaz -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$TOKEN
