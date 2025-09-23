@@ -40,10 +40,4 @@ phases:
       - echo "Checking quality gate status..."
       - QUALITY_GATE_STATUS=$(jq -r '.projectStatus.status' result.json)
       - echo "Quality Gate Status: $QUALITY_GATE_STATUS"
-      - |
-        if [ "$QUALITY_GATE_STATUS" = "ERROR" ]; then
-          echo "Quality gate failed!"
-          exit 1
-        else
-          echo "Quality gate passed!"
-        fi
+      - if [ "$QUALITY_GATE_STATUS" = "ERROR" ]; then echo "Quality gate failed!" && exit 1; else echo "Quality gate passed!"; fi
