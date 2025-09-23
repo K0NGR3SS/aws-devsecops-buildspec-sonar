@@ -1,10 +1,10 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: veryimportantProd1/sonar:sonartoken
-    HOST: veryimportantProd1/sonar:HOST
-    Organization: veryimportantProd1/sonar:Organization
-    Project: veryimportantProd1/sonar:Project
+    LOGIN: veryimportantProd1:sonartoken
+    HOST: veryimportantProd1:HOST
+    Organization: veryimportantProd1:Organization
+    Project: veryimportantProd1:Project
 phases:
   install:
     runtime-versions:
